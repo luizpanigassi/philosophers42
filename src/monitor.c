@@ -6,7 +6,7 @@
 /*   By: luinasci <luinasci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 15:43:51 by luinasci          #+#    #+#             */
-/*   Updated: 2025/03/11 18:37:16 by luinasci         ###   ########.fr       */
+/*   Updated: 2025/03/12 19:18:22 by luinasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ int	check_philosopher_death(t_program *p, int i)
 	if (!died)
 		return (0);
 	pthread_mutex_lock(p->philos[i].write_lock);
-	timestamp = get_current_time() - p->start_time;
+	timestamp = (p->philos[i].last_meal + p->philos[i].time_to_die)
+		- p->start_time;
 	print_formatted_time(timestamp);
 	printf("Philosopher \033[34m%d\033[0m \033[31mdied\033[0m\n", p->philos[i].id);
 	pthread_mutex_unlock(p->philos[i].write_lock);

@@ -6,7 +6,7 @@
 /*   By: luinasci <luinasci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 19:37:01 by luinasci          #+#    #+#             */
-/*   Updated: 2025/03/11 17:10:39 by luinasci         ###   ########.fr       */
+/*   Updated: 2025/03/12 19:27:31 by luinasci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,14 @@ void	think_action(t_philo *philo)
 
 void	eat_action(t_philo *philo)
 {
+	if (philo->num_of_philos == 1)
+	{
+		pthread_mutex_lock(philo->r_fork);
+		log_action(philo, "has taken a fork", "\033[33m");
+		perform_action_delay(philo, philo->time_to_die + 1);
+		pthread_mutex_unlock(philo->r_fork);
+		return ;
+	}
 	pick_forks(philo);
 	if (check_simulation_end(philo))
 	{
