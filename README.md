@@ -1,4 +1,4 @@
-# philo_deliver
+# philosophers42
 
 A solution for the Philosopher's Dinner problem!
 
@@ -26,8 +26,7 @@ In my solution, I've developed a "waiter". A monitor of sorts, used to control w
 
 1. **Clone the repository**  
    ```
-   git clone <repo-url>
-   cd philo_deliver
+   git clone git@github.com:luizpanigassi/philosophers42.git
    ```
 
 2. **Build the project**  
@@ -67,10 +66,6 @@ In my solution, I've developed a "waiter". A monitor of sorts, used to control w
 - Mutexes for resource management
 - Thread synchronization and monitoring
 - Deadlock avoidance and starvation prevention
-
-## License
-
-This project is for educational purposes.
 
 ---
 
